@@ -5,8 +5,8 @@
     -- Thông tin liên hệ Hà Văn Hanh, FB: Hà.
     
 --Yêu cầu
-    -- Trước Khi cài đặt và sử dụng bạn nên cài spring tool suite phiên bản mới, hiện tại mình đang dùng spring tool suite 4.
-    
+    -- Trước Khi cài đặt và sử dụng bạn nên cài spring tool suite phiên bản mới, hiện tại mình đang dùng spring tool suite 4, MySQL Workbench
+
 --Hướng dẫn
     -- Mời tải spring tool suite tại https://spring.io/tools
     -- Trong source code có thư mục với tên sql là nơi mình lưu file DB
