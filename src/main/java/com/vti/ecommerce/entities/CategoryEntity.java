@@ -1,6 +1,7 @@
 package com.vti.ecommerce.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,44 +10,47 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "categories", catalog = "express_typeorm_database")
 public class CategoryEntity implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
 
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
 	@Column(name = "id", nullable = false)
 	private Short id;
-	
-	
+
 	@Column(name = "name", length = 100, nullable = false)
 	private String name;
 
 	@Column(name = "description", length = 100, nullable = true)
 	private String description;
 
-	
 	@Column(name = "image", length = 2083, nullable = true)
 	private String image;
-	
-	
+
 	@Column(name = "status", length = 100, nullable = true)
 	private short status;
-	
+
 	@Column(name = "avatar", length = 1000, nullable = true)
 	private String avatar;
-	
-	@ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id",insertable = false, updatable = false)
-    private Category parent;
+
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "id", insertable = false, updatable = false)
+	private Category parent;
 
 //    @OneToMany(mappedBy = "categories", cascade = CascadeType.ALL)
 //    private Set<Category> subCategory;
+  
+
+	// Quan hệ 1-n với đối tượng ở dưới (ProductEntity)
+	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+	// MapopedBy trỏ tới tên biến category ở trong ProductEntity.
+	private Collection<ProductEntity> productList;
 
 	public Short getId() {
 		return id;
@@ -96,15 +100,12 @@ public class CategoryEntity implements Serializable {
 		this.avatar = avatar;
 	}
 
-	public  Category getParent() {
+	public Category getParent() {
 		return parent;
 	}
 
 	public void setParent(Category parent) {
 		this.parent = parent;
 	}
-	
-
-	
 
 }

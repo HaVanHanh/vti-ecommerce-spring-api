@@ -10,30 +10,44 @@ USE express_typeorm_database;
 DROP TABLE IF EXISTS users;
 CREATE TABLE users(
 
-  id						TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id						TINYINT  AUTO_INCREMENT PRIMARY KEY,
   firstName 				NVARCHAR(100),
   lastName					NVARCHAR(100),
   email 					VARCHAR(255) UNIQUE,
-  `password`				VARCHAR(255),
+  `password`				VARCHAR(60) DEFAULT "password",  -- using Bcrypt
   `status` 					BIT ,
   `avatar` 					VARCHAR(1000),
-  `language` 				TINYINT,
-   `role` 					TINYINT -- DEFAULT 10
+  `language` 				TINYINT
+
 );
 
+CREATE TABLE `role` (
+ `id` TINYINT(11) NOT NULL AUTO_INCREMENT,
+ `name` varchar(255) NOT NULL,
+ PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `user_role` (
+ `user_id` TINYINT(11) NOT NULL,
+ `role_id` TINYINT(11) NOT NULL,
+ PRIMARY KEY (`user_id`,`role_id`)
+);
+
+-- ALTER TABLE users
+-- ADD FOREIGN KEY (roleID) REFERENCES `role`(roleID);
 
 -- create table: categories
 DROP TABLE IF EXISTS categories;
 CREATE TABLE categories(
 
-  id						TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id						TINYINT  AUTO_INCREMENT PRIMARY KEY,
   `name` 					NVARCHAR(100) UNIQUE,
   slug						VARCHAR(100),
   `description` 			VARCHAR(100),
   `image`					NVARCHAR(2083),
   `status` 					BIT ,
   `avatar` 					VARCHAR(1000),
-  id_parent					TINYINT UNSIGNED,
+  id_parent					TINYINT ,
   FOREIGN KEY (id_parent) REFERENCES categories(id) 	
 );
 
@@ -41,7 +55,7 @@ CREATE TABLE categories(
 -- create table: categories
 DROP TABLE IF EXISTS products;
 CREATE TABLE products(
-  id						TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id						TINYINT  AUTO_INCREMENT PRIMARY KEY,
   `name` 					NVARCHAR(100),
   sku						VARCHAR(100),
   `description` 			VARCHAR(100),
@@ -50,22 +64,31 @@ CREATE TABLE products(
   `list_price` 				INT,
   `sell_price`				INT,
   `status`					BOOLEAN,
-  id_category				TINYINT UNSIGNED,
+  id_category				TINYINT ,
    FOREIGN KEY (id_category) REFERENCES categories(id) 
 );
+/*
+============================INSERT DATA============================
+
+=================================================================== 
+*/
+
+-- INSERT INTO `role`
+-- VALUE	( 0,		"ROLE_ADMIN" ),
+-- 		( 1,		"ROLE_MEMBER" );
 
 
 INSERT INTO users (firstName,	lastName,		email,
 							
-				`password`,		`status`,		`avatar`,		`language`,		`role` 	)
+				`password`,		`status`,		`avatar`,		`language`)
 VALUES
-				('Hà ',			'Văn Hanh',			'hanhhanoi1999@gmail.com',	'password',		1, 		1,		1, 		1 ),
-				('Vũ ',			'Văn Hùng',			'hung1212121@gmail.com',	'password',		1, 		1,		1, 		1 ),
-				('Nguyễn ',		'Văn Hoàng',		'hoang1212121@gmail.com',	'password',		1, 		1,		1, 		1 ),
-				('Phạm ',		'Tiến Anh',			'tanh12121219@gmail.com',	'password',		1, 		1,		1, 		1 ),
-				('Phạm ',		'Văn Hiệu',			'vhieu1212121@gmail.com',	'password',		1, 		1,		1, 		1 ),
-				('Phạm ',		'Thị Mai',			'maithi1212121@gmail.com',	'password',		1, 		1,		1, 		1 ),
-				('Nguyễn ',		'Trung Hiếu',		'hieu1212121@gmail.com',	'password',		1, 		1,		1, 		1 );
+				('Hà ',			'Văn Hanh',			'hanhhanoi1999@gmail.com',	'$2y$12$SxySj10lkuA18p.S73ZAPuQCJI/FB1Rs/JAARvE.Fit6Lx/ljRZDe',		1, 		1,		1),
+				('Vũ ',			'Văn Hùng',			'hung1212121@gmail.com',	'$2y$12$SxySj10lkuA18p.S73ZAPuQCJI/FB1Rs/JAARvE.Fit6Lx/ljRZDe',		1, 		1,		1),
+				('Nguyễn ',		'Văn Hoàng',		'hoang1212121@gmail.com',	'$2y$12$SxySj10lkuA18p.S73ZAPuQCJI/FB1Rs/JAARvE.Fit6Lx/ljRZDe',		1, 		1,		1),
+				('Phạm ',		'Tiến Anh',			'tanh12121219@gmail.com',	'$2y$12$SxySj10lkuA18p.S73ZAPuQCJI/FB1Rs/JAARvE.Fit6Lx/ljRZDe',		1, 		1,		1),
+				('Phạm ',		'Văn Hiệu',			'vhieu1212121@gmail.com',	'$2y$12$SxySj10lkuA18p.S73ZAPuQCJI/FB1Rs/JAARvE.Fit6Lx/ljRZDe',		1, 		1,		1),
+				('Phạm ',		'Thị Mai',			'maithi1212121@gmail.com',	'$2y$12$SxySj10lkuA18p.S73ZAPuQCJI/FB1Rs/JAARvE.Fit6Lx/ljRZDe',		1, 		1,		1),
+				('Nguyễn ',		'Trung Hiếu',		'hieu1212121@gmail.com',	'$2y$12$SxySj10lkuA18p.S73ZAPuQCJI/FB1Rs/JAARvE.Fit6Lx/ljRZDe',		1, 		1,		1);
   
   
   /*

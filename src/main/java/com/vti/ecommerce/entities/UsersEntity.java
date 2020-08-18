@@ -1,9 +1,15 @@
 package com.vti.ecommerce.entities;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -30,7 +36,6 @@ public class UsersEntity {
 	private String email;
 
 	@NotEmpty
-	@Email
 	@Size(max = 255)
 	@Column(name = "password", unique = true)
 	private String password;
@@ -44,8 +49,11 @@ public class UsersEntity {
 	@Column(name = "language", length = 100, nullable = false)
 	private short language;
 
-	@Column(name = "role", length = 100, nullable = false)
-	private short role;
+	@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinTable(name = "user_role",
+				joinColumns = @JoinColumn(name = "user_id"),
+				inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles;
 
 	public Short getId() {
 		return id;
@@ -111,14 +119,12 @@ public class UsersEntity {
 		this.language = language;
 	}
 
-	public short getRole() {
-		return role;
+	public Set<Role> getRoles() {
+		return roles;
 	}
 
-	public void setRole(short role) {
-		this.role = role;
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 
-	
-	
 }

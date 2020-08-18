@@ -16,7 +16,7 @@ import com.vti.ecommerce.service.CategoryServiceInterface;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "api/v1/categories")
+@RequestMapping(value = "/categories")
 public class CategoryController {
 	@Autowired
 	private CategoryServiceInterface service;

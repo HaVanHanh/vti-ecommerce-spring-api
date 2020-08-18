@@ -1,11 +1,18 @@
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\service\CategoryService.java
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\entities\CategoryEntity.java
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\test\Main.java
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\repositories\UserRepository.java
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\service\UserServiceInterface.java
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\entities\UsersEntity.java
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\service\UserService.java
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\service\CategoryServiceInterface.java
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\controller\CategoryController.java
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\controller\UserController.java
-C:\Users\W\Desktop\git\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\VtiEcommerceSpringApiApplication.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\repositories\CategoryRepository.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\repositories\UserRepository.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\controller\UserController.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\service\CategoryService.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\entities\UsersEntity.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\entities\ProductEntity.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\service\UserServiceInterface.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\VtiEcommerceSpringApiApplication.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\service\ProductService.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\service\UserService.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\test\Main.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\entities\CategoryEntity.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\repositories\ProductRepository.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\entities\Category.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\service\CategoryServiceInterface.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\controller\CategoryController.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\controller\ProductController.java
+C:\Git clone\vti-ecommerce-spring-api\src\main\java\com\vti\ecommerce\service\ProductServiceInterface.java

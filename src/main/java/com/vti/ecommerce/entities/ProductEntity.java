@@ -1,6 +1,5 @@
 package com.vti.ecommerce.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,10 +38,16 @@ public class ProductEntity {
 //	@Column(name = "category", length = 1000, nullable = true)
 //	private Category category;
 	
-	@ManyToOne
+
 //   @JoinColumn(name = "id",insertable = false, updatable = false)
-	@JoinColumn(name="id_category", referencedColumnName="id",insertable = false, updatable = false)
+//	@JoinColumn(name="id_category", referencedColumnName="id",insertable = false, updatable = false)
+
+	
+	   // Many to One Có nhiều người ở 1 địa điểm.
+    @ManyToOne 
+    @JoinColumn(name = "id_category") // thông qua khóa ngoại address_id
     private Category category;
+	
 	
 	@Column(name = "list_price", length = 1000, nullable = true)
 	private int list_price;
